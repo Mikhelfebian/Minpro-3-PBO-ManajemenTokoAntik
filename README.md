@@ -462,11 +462,11 @@ Menu ini digunakan untuk menambahkan barang baru. Program menyediakan dua jenis 
 
 #### Tambah Barang Antik
 
-![Tambah Barang Antik](screenshots/tambah-barang-antik.png)
+<img width="965" height="225" alt="image" src="https://github.com/user-attachments/assets/deae8bb0-f1ce-48ac-8ed3-8f4bfcc5f615" />
 
 #### Tambah Barang Perhiasan
 
-![Tambah Barang Perhiasan](screenshots/tambah-barang-perhiasan.png)
+<img width="971" height="227" alt="image" src="https://github.com/user-attachments/assets/ac5e7da9-7c9d-436e-acd3-a7042ca7c549" />
 
 ---
 
@@ -474,7 +474,7 @@ Menu ini digunakan untuk menambahkan barang baru. Program menyediakan dua jenis 
 
 Menampilkan seluruh barang yang tersimpan dalam sistem beserta informasi seperti ID, nama, jenis, harga, stok, dan atribut khusus barang.
 
-![Tampilkan Semua Barang](screenshots/tampilkan-semua-barang.png)
+<img width="1321" height="452" alt="image" src="https://github.com/user-attachments/assets/60ab0adf-2fcf-402b-b0ee-ba5d398ad710" />
 
 ---
 
@@ -484,11 +484,11 @@ Menu pencarian dapat digunakan untuk mencari barang berdasarkan **ID** maupun **
 
 #### Cari Berdasarkan ID
 
-![Cari Berdasarkan ID](screenshots/cari-berdasarkan-id.png)
+<img width="1270" height="176" alt="image" src="https://github.com/user-attachments/assets/1764add1-fb22-41e6-9ad8-8f7132d99c9f" />
 
 #### Cari Berdasarkan Nama
 
-![Cari Berdasarkan Nama](screenshots/cari-berdasarkan-nama.png)
+<img width="1332" height="167" alt="image" src="https://github.com/user-attachments/assets/bdd11d4e-1dee-4912-b6a6-e4eb72c0b915" />
 
 ---
 
@@ -496,7 +496,7 @@ Menu pencarian dapat digunakan untuk mencari barang berdasarkan **ID** maupun **
 
 Menu ini digunakan untuk memperbarui informasi barang yang telah tersimpan. Pengguna dapat memilih barang berdasarkan ID kemudian mengubah data yang diperlukan.
 
-![Update Barang](screenshots/update-barang.png)
+<img width="1335" height="457" alt="image" src="https://github.com/user-attachments/assets/d25e5999-2fd5-4cc1-a6a2-25b0075640f8" />
 
 ---
 
@@ -504,7 +504,7 @@ Menu ini digunakan untuk memperbarui informasi barang yang telah tersimpan. Peng
 
 Menu ini digunakan untuk menghapus barang berdasarkan ID. Program akan menampilkan konfirmasi sebelum data dihapus.
 
-![Hapus Barang](screenshots/hapus-barang.png)
+<img width="1328" height="376" alt="image" src="https://github.com/user-attachments/assets/942f28c3-0b14-41a0-8d5a-7ca2eb810807" />
 
 ---
 
@@ -512,7 +512,7 @@ Menu ini digunakan untuk menghapus barang berdasarkan ID. Program akan menampilk
 
 Menu keluar digunakan untuk menghentikan program dan menampilkan pesan penutup.
 
-![Keluar Program](screenshots/keluar-program.png)
+<img width="982" height="287" alt="image" src="https://github.com/user-attachments/assets/0e7c835b-823c-417d-ac65-b6886520dbda" />
 
 ---
 
