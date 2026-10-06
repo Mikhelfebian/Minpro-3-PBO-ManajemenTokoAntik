@@ -444,69 +444,75 @@ Pada model, data yang tidak memenuhi aturan juga akan menghasilkan `IllegalArgum
 
 ---
 
-# 12. Contoh Output Program
+## 12. Dokumentasi Output Program
+
+Berikut merupakan dokumentasi output program berdasarkan setiap menu yang tersedia pada **Monarch Antiqu'e System**.
 
 ### 12.1 Menu Utama
 
-```text
-===========================================
-    TOKO BARANG ANTIK - MONARCH ANTIQU'E
-===========================================
-1. Tambah Barang
-2. Tampilkan Semua Barang
-3. Cari Barang
-4. Update Barang
-5. Hapus Barang
-6. Keluar
-===========================================
-Pilih menu (1-6):
-```
+Menampilkan menu utama program yang terdiri dari fitur tambah, tampilkan, cari, update, hapus, dan keluar.
 
-### 12.2 Menampilkan Data Barang
+![Menu Utama](screenshots/menu-utama.png)
 
-```text
-=== DAFTAR BARANG ANTIK & PERHIASAN ===
------------------------------------------------------------------------------------------------------------------------------------
-ID   Nama Barang              Jenis           Harga             Stok   | Detail & Sertifikat Keaslian
------------------------------------------------------------------------------------------------------------------------------------
-1    Mangkuk Dinasti Ming     Barang Antik    Rp18000000        2      | ...
-2    Cincin Kecubung Antik    Perhiasan       Rp7500000         1      | ...
-3    Patung Singa Guennol     Barang Antik    Rp32000000        1      | ...
------------------------------------------------------------------------------------------------------------------------------------
-```
+---
 
-### 12.3 Pencarian Barang
+### 12.2 Tambah Barang
 
-Pengguna dapat mencari barang berdasarkan ID atau keyword nama.
+Menu ini digunakan untuk menambahkan barang baru. Program menyediakan dua jenis barang, yaitu **Barang Antik** dan **Perhiasan**.
 
-```text
-=== CARI BARANG ===
-1. Cari berdasarkan ID
-2. Cari berdasarkan Nama/Keyword
-Pilih metode pencarian (1-2):
-```
+#### Tambah Barang Antik
 
-### 12.4 Update Barang
+![Tambah Barang Antik](screenshots/tambah-barang-antik.png)
 
-Program menampilkan nilai lama dan memberikan pilihan untuk mempertahankan nilai tersebut dengan menekan `Enter`.
+#### Tambah Barang Perhiasan
 
-```text
-*Catatan: Tekan [ENTER] jika tidak ingin mengubah nilai lama.
+![Tambah Barang Perhiasan](screenshots/tambah-barang-perhiasan.png)
 
-Nama barang baru [Mangkuk Dinasti Ming]:
-Harga baru Rp [18000000]:
-Stok baru [2]:
-```
+---
 
-### 12.5 Hapus Barang
+### 12.3 Tampilkan Semua Barang
 
-Program meminta konfirmasi sebelum melakukan penghapusan:
+Menampilkan seluruh barang yang tersimpan dalam sistem beserta informasi seperti ID, nama, jenis, harga, stok, dan atribut khusus barang.
 
-```text
-Yakin ingin menghapus 'Mangkuk Dinasti Ming'? (y/n):
-```
+![Tampilkan Semua Barang](screenshots/tampilkan-semua-barang.png)
 
-Jika pengguna memilih `y`, data akan dihapus dari daftar.
+---
+
+### 12.4 Cari Barang
+
+Menu pencarian dapat digunakan untuk mencari barang berdasarkan **ID** maupun **nama/keyword**.
+
+#### Cari Berdasarkan ID
+
+![Cari Berdasarkan ID](screenshots/cari-berdasarkan-id.png)
+
+#### Cari Berdasarkan Nama
+
+![Cari Berdasarkan Nama](screenshots/cari-berdasarkan-nama.png)
+
+---
+
+### 12.5 Update Barang
+
+Menu ini digunakan untuk memperbarui informasi barang yang telah tersimpan. Pengguna dapat memilih barang berdasarkan ID kemudian mengubah data yang diperlukan.
+
+![Update Barang](screenshots/update-barang.png)
+
+---
+
+### 12.6 Hapus Barang
+
+Menu ini digunakan untuk menghapus barang berdasarkan ID. Program akan menampilkan konfirmasi sebelum data dihapus.
+
+![Hapus Barang](screenshots/hapus-barang.png)
+
+---
+
+### 12.7 Keluar Program
+
+Menu keluar digunakan untuk menghentikan program dan menampilkan pesan penutup.
+
+![Keluar Program](screenshots/keluar-program.png)
 
 ---
 
