@@ -452,7 +452,7 @@ Berikut merupakan dokumentasi output program berdasarkan setiap menu yang tersed
 
 Menampilkan menu utama program yang terdiri dari fitur tambah, tampilkan, cari, update, hapus, dan keluar.
 
-![Menu Utama](screenshots/menu-utama.png)
+<img width="968" height="246" alt="image" src="https://github.com/user-attachments/assets/d1c86ec9-ea3d-4e26-996b-b81ab4f39be8" />
 
 ---
 
