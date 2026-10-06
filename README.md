@@ -1,45 +1,179 @@
-# Dokumentasi Program Mini Project 2 PBO
+# Dokumentasi Program Mini Project 3 PBO
+
 ## Sistem Manajemen Inventaris Toko Barang Antik (Monarch Antiqu'e)
 
 ---
 
 ### Informasi Mahasiswa
+
 * **Nama** : Mikhel Febian
 * **NIM** : 2509116056
 * **Kelas** : B
 * **Angkatan** : 2025
-* **Mata Kuliah** : Pemrograman Berbasis Objek
-* **Tema Program** : Sistem Penjualan dan Inventaris Barang Antik
+* **Mata Kuliah** : Pemrograman Berorientasi Objek
+* **Tema Program** : Sistem Manajemen Inventaris Barang Antik
 * **Nama Sistem** : Monarch Antiqu'e System
-* **Repository** : [Minpro-2-PBO-ManajemenTokoAntik](https://github.com/Mikhelfebian/Minpro-2-PBO-ManajemenTokoAntik/tree/main)
 
 ---
 
-### 1. Deskripsi Singkat Program
-Monarch Antiqu'e System adalah aplikasi pengelolaan inventaris barang antik berbasis *Command Line Interface* (CLI) yang dikembangkan menggunakan bahasa pemrograman Java. Program ini dirancang untuk memudahkan admin etalase toko dalam mengelola data koleksi barang antik dan perhiasan melalui operasi *Create, Read, Update, dan Delete* (CRUD).
+## 1. Deskripsi Singkat Program
 
-Pada versi Mini Project 2 ini, arsitektur sistem telah disempurnakan dengan menerapkan prinsip-prinsip Pemrograman Berbasis Objek (*Object-Oriented Programming*) meliputi **Encapsulation**, **Inheritance**, **Polymorphism**, serta pemisahan struktur package berdasarkan pola arsitektur **Model-View-Controller (MVC)**.
+**Monarch Antiqu'e System** merupakan aplikasi manajemen inventaris barang antik berbasis **Command Line Interface (CLI)** yang dikembangkan menggunakan bahasa pemrograman Java.
 
----
+Program digunakan untuk mengelola data barang antik dan perhiasan melalui operasi **Create, Read, Update, dan Delete (CRUD)**. Pengguna dapat menambahkan, menampilkan, mencari, memperbarui, dan menghapus data barang.
 
-### 2. Spesifikasi Lingkungan Pengembangan
-* **Bahasa Pemrograman** : Java (JDK 17+)
-* **Integrated Development Environment (IDE)** : Apache NetBeans
-* **Struktur Data Memory** : `java.util.ArrayList`
-* **Arsitektur Program** : Model-View-Controller (MVC)
+Pada Mini Project 3, program dikembangkan dengan menerapkan konsep Pemrograman Berorientasi Objek berupa **Encapsulation, Inheritance, Polymorphism, Abstraction**, serta struktur proyek **Model-View-Controller (MVC)**.
+
+Sebagai nilai tambah, program juga menerapkan **Interface** melalui `Authenticable`.
 
 ---
 
-### 3. Struktur Entitas dan Penerapan Inheritance
+## 2. Spesifikasi Program
 
-Sistem mengimplementasikan prinsip *Inheritance* (Pewarisan) dengan `Barang` sebagai *Superclass* serta `BarangAntik` dan `BarangPerhiasan` sebagai *Subclass*.
+* **Bahasa Pemrograman** : Java
+* **JDK** : JDK 17+
+* **IDE** : Apache NetBeans
+* **Struktur Data** : `ArrayList`
+* **Arsitektur** : Model-View-Controller (MVC)
+* **Antarmuka** : Command Line Interface (CLI)
+
+---
+
+## 3. Struktur Package
+
+Struktur package program adalah sebagai berikut:
+
+```text
+com.mycompany.tokoantik
+├── controller/
+│   └── BarangController.java
+│
+├── model/
+│   ├── Authenticable.java
+│   ├── Barang.java
+│   ├── BarangAntik.java
+│   └── BarangPerhiasan.java
+│
+├── util/
+│   └── Validator.java
+│
+├── view/
+│   └── MainView.java
+│
+└── Main.java
+```
+
+### Fungsi setiap package
+
+| Package      | Fungsi                                               |
+| ------------ | ---------------------------------------------------- |
+| `model`      | Menyimpan class dan struktur data utama program      |
+| `controller` | Menangani logika pengelolaan dan operasi CRUD data   |
+| `view`       | Menangani tampilan CLI dan interaksi dengan pengguna |
+| `util`       | Menyediakan fungsi validasi input                    |
+| `Main`       | Menjadi entry point untuk menjalankan program        |
+
+---
+
+## 4. Alur Program
+
+Saat program dijalankan, `Main` membuat objek `MainView`, kemudian menjalankan method `start()`.
+
+```text
+Main
+  ↓
+MainView
+  ↓
+BarangController
+  ↓
+ArrayList<Barang>
+  ↓
+Menu Utama
+  ├── 1. Tambah Barang
+  ├── 2. Tampilkan Semua Barang
+  ├── 3. Cari Barang
+  ├── 4. Update Barang
+  ├── 5. Hapus Barang
+  └── 6. Keluar
+```
+
+### 4.1 Tambah Barang
+
+Pengguna memilih jenis barang:
+
+1. Barang Antik
+2. Barang Perhiasan
+
+Program kemudian meminta atribut umum dan atribut khusus sesuai jenis barang. Object yang dibuat dimasukkan ke dalam `ArrayList<Barang>` melalui `BarangController`.
+
+### 4.2 Tampilkan Semua Barang
+
+Program mengambil seluruh object dari `ArrayList<Barang>` dan menampilkannya dalam bentuk tabel.
+
+### 4.3 Cari Barang
+
+Pencarian dapat dilakukan berdasarkan:
+
+* ID barang
+* Nama atau keyword
+
+Program menggunakan method `cariBarang()` dengan parameter berbeda untuk kedua jenis pencarian tersebut.
+
+### 4.4 Update Barang
+
+Pengguna memasukkan ID barang yang ingin diperbarui. Data umum dan data khusus barang kemudian dapat diperbarui menggunakan setter.
+
+### 4.5 Hapus Barang
+
+Pengguna memasukkan ID barang kemudian memberikan konfirmasi sebelum object dihapus dari `ArrayList`.
+
+### 4.6 Keluar
+
+Program menghentikan perulangan menu dan mengakhiri program.
+
+---
+
+# 5. Penerapan Encapsulation
+
+Encapsulation diterapkan dengan membatasi akses langsung terhadap atribut object dan menyediakan method untuk mengakses serta mengubah data.
+
+Contohnya pada class `Barang`:
+
+```java
+protected String namaBarang;
+protected double harga;
+protected int stok;
+```
+
+Akses terhadap data dilakukan melalui getter dan setter, contohnya:
+
+```java
+public String getNamaBarang() {
+    return namaBarang;
+}
+
+public void setNamaBarang(String namaBarang) {
+    if (namaBarang == null || namaBarang.trim().isEmpty()) {
+        throw new IllegalArgumentException("Nama barang tidak boleh kosong.");
+    }
+    this.namaBarang = namaBarang;
+}
+```
+
+Setter juga digunakan untuk menjaga agar data object tetap valid, seperti mencegah harga dan stok bernilai negatif.
+
+---
+
+# 6. Penerapan Inheritance
+
+Inheritance diterapkan dengan menjadikan `Barang` sebagai superclass dan `BarangAntik` serta `BarangPerhiasan` sebagai subclass.
 
 ```mermaid
 classDiagram
     direction BT
 
     class Barang {
-        <<Superclass>>
+        <<abstract>>
         #int id
         #String namaBarang
         #double harga
@@ -47,195 +181,346 @@ classDiagram
     }
 
     class BarangAntik {
-        <<Subclass 1>>
         -String asalNegara
         -int tahunPembuatan
     }
 
     class BarangPerhiasan {
-        <<Subclass 2>>
         -String material
         -double beratGram
     }
 
-    BarangAntik --|> Barang : extends
-    BarangPerhiasan --|> Barang : extends
+    BarangAntik --|> Barang
+    BarangPerhiasan --|> Barang
 ```
 
-#### 3.1 Superclass: `Barang`
-Menampung atribut dan perilaku umum yang dimiliki oleh seluruh entitas barang di toko.
+Deklarasi inheritance:
 
-| Modifikator Akses | Tipe Data | Nama Atribut | Deskripsi |
-| :--- | :--- | :--- | :--- |
-| `protected` | `int` | `id` | Identifikasi unik barang (*auto-increment*). |
-| `protected` | `String` | `namaBarang` | Nama barang antik atau perhiasan. |
-| `protected` | `double` | `harga` | Nominal harga barang dalam satuan Rupiah. |
-| `protected` | `int` | `stok` | Ketersediaan jumlah unit barang. |
-
-#### 3.2 Subclass 1: `BarangAntik` (Extends `Barang`)
-Menampung data barang antik umum dengan atribut spesifik histori.
-
-| Modifikator Akses | Tipe Data | Nama Atribut | Deskripsi |
-| :--- | :--- | :--- | :--- |
-| `private` | `String` | `asalNegara` | Negara asal ditemukannya objek antik. |
-| `private` | `int` | `tahunPembuatan` | Tahun pembuatan atau estimasi usia barang. |
-
-#### 3.3 Subclass 2: `BarangPerhiasan` (Extends `Barang`)
-Menampung data barang koleksi perhiasan antik dengan atribut spesifik material fisik.
-
-| Modifikator Akses | Tipe Data | Nama Atribut | Deskripsi |
-| :--- | :--- | :--- | :--- |
-| `private` | `String` | `material` | Jenis material pembuat perhiasan (Emas, Perak, dsb). |
-| `private` | `double` | `beratGram` | Berat fisik perhiasan dalam satuan gram. |
-
----
-
-### 4. Alur Kerja Sistem
-```mermaid
-flowchart TD
-    %% Inisialisasi
-    Start([Start Program]) --> LoadData[Load Pre-defined Dummy Data ke ArrayList]
-    LoadData --> MenuJunction(( ))
-
-    %% Menu Utama
-    MenuJunction --> ShowMenu[/Tampilkan Menu Utama:<br/>1. Tambah Barang<br/>2. Tampilkan Semua Barang<br/>3. Cari Barang berdasarkan ID<br/>4. Update Barang<br/>5. Hapus Barang<br/>6. Keluar/]
-    ShowMenu --> ReadMenu[/Input Pilihan Menu 1-6/]
-    ReadMenu --> CheckMenu{Pilihan Menu?}
-
-    %% Fitur 1: Tambah
-    CheckMenu -->|1| M1_Select[/Input Jenis Barang:<br/>1. Barang Antik<br/>2. Perhiasan/]
-    M1_Select --> M1_Input[/Input Atribut Umum & Atribut Spesifik Subclass/]
-    M1_Input --> M1_Process[Instansiasi Objek Subclass & Tambah ke ArrayList]
-    M1_Process --> M1_Print[/Tampilkan Pesan: Data Berhasil Ditambahkan/]
-    M1_Print --> MenuJunction
-
-    %% Fitur 2: Tampilkan
-    CheckMenu -->|2| M2_Fetch[Ambil Seluruh Data Objek dari ArrayList]
-    M2_Fetch --> M2_Print[/Tampilkan Daftar Barang dalam Format Tabel/]
-    M2_Print --> MenuJunction
-
-    %% Fitur 3: Cari
-    CheckMenu -->|3| M3_Input[/Input ID Barang/]
-    M3_Input --> M3_Search[Cari Objek berdasarkan ID pada ArrayList]
-    M3_Search --> M3_Check{Barang Ditemukan?}
-    M3_Check -->|Ya| M3_PrintSuccess[/Tampilkan Rincian Detail Barang/]
-    M3_Check -->|Tidak| M3_PrintFail[/Tampilkan Pesan: ID Tidak Ditemukan/]
-    M3_PrintSuccess --> MenuJunction
-    M3_PrintFail --> MenuJunction
-
-    %% Fitur 4: Update
-    CheckMenu -->|4| M4_InputID[/Input ID Barang yang Ingin Diupdate/]
-    M4_InputID --> M4_Search[Cari Objek berdasarkan ID pada ArrayList]
-    M4_Search --> M4_Check{Barang Ditemukan?}
-    M4_Check -->|Ya| M4_InputData[/Input Data Atribut Baru/]
-    M4_InputData --> M4_Update[Update Nilai Atribut Objek via Setter/]
-    M4_Update --> M4_PrintSuccess[/Tampilkan Pesan: Data Berhasil Diupdate/]
-    M4_Check -->|Tidak| M4_PrintFail[/Tampilkan Pesan: ID Tidak Ditemukan/]
-    M4_PrintSuccess --> MenuJunction
-    M4_PrintFail --> MenuJunction
-
-    %% Fitur 5: Hapus
-    CheckMenu -->|5| M5_InputID[/Input ID Barang yang Ingin Dihapus/]
-    M5_InputID --> M5_Search[Cari Objek berdasarkan ID pada ArrayList]
-    M5_Search --> M5_Check{Barang Ditemukan?}
-    M5_Check -->|Ya| M5_Confirm[/Input Konfirmasi Penghapusan y/n/]
-    M5_Confirm --> M5_ConfirmCheck{Konfirmasi 'y'?}
-    M5_ConfirmCheck -->|Ya| M5_Delete[Hapus Objek dari ArrayList]
-    M5_Delete --> M5_PrintSuccess[/Tampilkan Pesan: Data Berhasil Dihapus/]
-    M5_ConfirmCheck -->|Tidak| M5_PrintCancel[/Tampilkan Pesan: Penghapusan Dibatalkan/]
-    M5_Check -->|Tidak| M5_PrintFail[/Tampilkan Pesan: ID Tidak Ditemukan/]
-    M5_PrintSuccess --> MenuJunction
-    M5_PrintCancel --> MenuJunction
-    M5_PrintFail --> MenuJunction
-
-    %% Exception Handling & Exit
-    CheckMenu -->|Pilihan Invalid| MErr_Print[/Tampilkan Pesan Error: Pilihan Tidak Valid/]
-    MErr_Print --> MenuJunction
-
-    CheckMenu -->|6| M6_Print[/Tampilkan Pesan: Terima Kasih, Program Selesai/]
-    M6_Print --> End([End Program])
+```java
+public class BarangAntik extends Barang
 ```
 
-1. **Inisialisasi Data (`Read Pre-loaded Data`)** :
-   Sistem secara otomatis mengisikan beberapa data awal (*dummy data*) ke dalam `ArrayList` saat aplikasi dijalankan, sehingga fitur penampilan data langsung dapat diuji tanpa pengisian dari awal.
-2. **Tambah Barang (`Menu 1`)** :
-   Pengguna memilih tipe entitas yang ingin ditambahkan (`BarangAntik` atau `BarangPerhiasan`). Sistem meminta input detail sesuai tipe dengan disertai contoh format (*hint*).
-3. **Tampilkan Semua Barang (`Menu 2`)** :
-   Sistem menampilkan daftar barang dalam tabel terformat beserta detail atribut khusus dari masing-masing tipe kelas.
-4. **Cari Barang Berdasarkan ID (`Menu 3`)** :
-   Pengguna menginput ID barang. Sistem melakukan pencarian linier dan menampilkan entitas jika ditemukan.
-5. **Update Barang (`Menu 4`)** :
-   Sistem menampilkan data yang tersimpan berdasarkan ID, lalu menerima input pembaruan atribut umum dan atribut khusus subclass.
-6. **Hapus Barang (`Menu 5`)** :
-   Sistem meminta masukan ID barang yang akan dihapus, lalu meminta konfirmasi penghapusan (`y/n`) sebelum memuat operasi hapus.
+dan:
+
+```java
+public class BarangPerhiasan extends Barang
+```
+
+Subclass mewarisi atribut dan method dari `Barang`, serta memiliki atribut khusus masing-masing.
+
+Constructor subclass juga menggunakan `super()` untuk memanggil constructor superclass:
+
+```java
+super(id, namaBarang, harga, stok);
+```
 
 ---
 
-### 5. Penjelasan Penerapan Prinsip PBO Wajib
+# 7. Penerapan Abstraction
 
-#### 5.1 Encapsulation dan Access Modifier
-* Seluruh variabel instans dikapsulasi ketat dengan modifikator `protected` pada *Superclass* dan `private` pada *Subclass*.
-* Akses maupun pembacaan variabel dikendalikan melalui metode *Getter* dan *Setter*.
-* Metode *Setter* dilengkapi dengan validasi data internal (misal: penolakan string kosong dan angka bernilai negatif dengan melempar `IllegalArgumentException`).
+Abstraction diterapkan melalui abstract class `Barang`.
 
-#### 5.2 Inheritance
-* Implementasi hirarki dilakukan dengan membuat *Superclass* `Barang.java` yang diturunkan kepada dua *Subclass* yaitu `BarangAntik.java` dan `BarangPerhiasan.java`.
-* *Subclass* menggunakan kata kunci `super` pada konstruktor untuk memanggil konstruktor dari *Superclass*.
+```java
+public abstract class Barang
+```
 
-#### 5.3 Validasi Input Usability
-* Penanganan masukan pengguna terpusat pada kelas utilitas `Validator.java` untuk mengantisipasi *exception* masukan tipe data salah (seperti `NumberFormatException`).
-* Setiap prompt instruksi inputan pada `MainView.java` dilengkapi dengan contoh format masukan (*hint*) untuk memperjelas ekspektasi masukan bagi pengguna.
+Class `Barang` tidak dibuat sebagai object secara langsung, tetapi menjadi dasar bagi subclass.
+
+Program juga memiliki abstract method:
+
+```java
+public abstract String getJenisBarang();
+
+public abstract String getDetailAtribut();
+```
+
+Method tersebut tidak memiliki implementasi pada `Barang`. Setiap subclass wajib memberikan implementasinya sendiri.
+
+Contohnya pada `BarangPerhiasan`:
+
+```java
+@Override
+public String getJenisBarang() {
+    return "Perhiasan";
+}
+```
+
+Sedangkan `BarangAntik` memberikan implementasi yang berbeda:
+
+```java
+@Override
+public String getJenisBarang() {
+    return "Barang Antik";
+}
+```
+
+Dengan demikian, `Barang` menentukan kontrak umum, sedangkan subclass menentukan detail implementasinya.
 
 ---
 
-### 6. Penjelasan Penerapan Nilai Tambah
+# 8. Penerapan Polymorphism
 
-#### 6.1 Arsitektur Model-View-Controller (MVC)
-Kode program dipisahkan secara modular ke dalam struktur *package* terorganisir berikut:
+Polymorphism diterapkan melalui **overriding** dan **overloading**.
+
+## 8.1 Method Overriding
+
+Subclass mengimplementasikan kembali method yang berasal dari superclass.
+
+Contohnya:
+
+```java
+@Override
+public String getDetailAtribut() {
+    return String.format(
+        "Mat: %-10s | Berat: %.1fg | Sertifikat: %s",
+        material, beratGram, getKodeSertifikat()
+    );
+}
+```
+
+`BarangAntik` dan `BarangPerhiasan` memiliki implementasi `getDetailAtribut()` yang berbeda sesuai karakteristik masing-masing.
+
+Selain itu, `getJenisBarang()` juga dioverride oleh kedua subclass.
+
+## 8.2 Method Overloading
+
+Overloading diterapkan pada `BarangController`.
+
+Terdapat dua method `tambahBarang()` dengan parameter berbeda:
+
+```java
+public Barang tambahBarang(
+    String nama, double harga, int stok,
+    String asal, int tahun
+)
+```
+
+dan:
+
+```java
+public Barang tambahBarang(
+    String nama, double harga, int stok,
+    String material, double berat
+)
+```
+
+Keduanya memiliki nama method yang sama, tetapi signature parameter berbeda.
+
+Overloading juga diterapkan pada method `cariBarang()`:
+
+```java
+public Barang cariBarang(int id)
+```
+
+dan:
+
+```java
+public ArrayList<Barang> cariBarang(String keyword)
+```
+
+Java menentukan method yang digunakan berdasarkan parameter yang diberikan saat pemanggilan.
+
+---
+
+# 9. Penerapan MVC
+
+Program menerapkan pola **Model-View-Controller (MVC)** dengan pembagian tanggung jawab sebagai berikut:
+
+### Model
+
+Berada pada package `model`.
 
 ```text
-com.mycompany.tokoantik
-├── model/
-│   ├── Barang.java             (Superclass Entitas Utama)
-│   ├── BarangAntik.java        (Subclass Entitas Barang Antik)
-│   └── BarangPerhiasan.java    (Subclass Entitas Perhiasan)
-├── controller/
-│   └── BarangController.java   (Logika Bisnis, CRUD, & Pengelolaan ArrayList)
-├── view/
-│   └── MainView.java           (Interface CLI dan Alur Interaksi Pengguna)
-├── util/
-│   └── Validator.java          (Utility Pemrosesan dan Validasi Input)
-└── Main.java                   (Kelas Utas Entry Point Utama)
+Barang.java
+BarangAntik.java
+BarangPerhiasan.java
+Authenticable.java
 ```
 
-#### 6.2 Polymorphism
-* **Method Overriding** :
-  Metode `getJenisBarang()` dan `toString()` dari kelas `Barang` di-*override* pada kelas `BarangAntik` dan `BarangPerhiasan`. Hal ini memungkinkan pencetakan tabel informasi barang secara dinamis menyesuaikan tipe objek pada run-time.
-* **Method Overloading** :
-  Kelas `BarangController` mengimplementasikan *method overloading* pada metode penambahan barang:
-  - `tambahBarangAntik(String nama, double harga, int stok, String asal, int tahun)`
-  - `tambahBarangPerhiasan(String nama, double harga, int stok, String material, double berat)`
+Berfungsi mendefinisikan struktur data, atribut, perilaku object, dan kontrak interface.
+
+### View
+
+Berada pada:
+
+```text
+view/MainView.java
+```
+
+Berfungsi menangani interaksi dengan pengguna, seperti menampilkan menu, menerima input, dan menampilkan hasil operasi.
+
+### Controller
+
+Berada pada:
+
+```text
+controller/BarangController.java
+```
+
+Berfungsi menangani pengelolaan data dan operasi CRUD terhadap `ArrayList<Barang>`.
+
+Pembagian tersebut membuat logika tampilan dan pengelolaan data tidak berada dalam satu class.
 
 ---
 
-### 7. Tangkapan Layar Eksekusi Program
+# 10. Penerapan Interface — Nilai Tambah
 
-#### 7.1 Tampilan Menu Utama dan Read Data Bawaan
+Program menerapkan interface `Authenticable` sebagai nilai tambah.
 
-<img width="1196" height="437" alt="image" src="https://github.com/user-attachments/assets/578f455d-c68b-4603-b9d3-a3a9fe8352b2" />
+Interface didefinisikan sebagai:
 
+```java
+public interface Authenticable {
+    final String SERTIFIKAT_PREFIX = "CERT-MONARCH-";
 
-#### 7.2 Tambah Data Baru dengan Petunjuk Format Input
+    String getKodeSertifikat();
+    boolean verifikasiKeaslian();
+}
+```
 
-<img width="1145" height="476" alt="image" src="https://github.com/user-attachments/assets/fb4ee61e-5c16-4edf-bdea-2679ea940e28" />
+Interface tersebut menjadi kontrak bahwa class yang mengimplementasikannya harus menyediakan method:
 
+* `getKodeSertifikat()`
+* `verifikasiKeaslian()`
 
-#### 7.3 Update Data Barang Spesifik Subclass
+`BarangAntik` dan `BarangPerhiasan` mengimplementasikan interface tersebut:
 
-<img width="1151" height="672" alt="image" src="https://github.com/user-attachments/assets/6c3b441d-e5f7-4756-8fdd-545e56a0bba7" />
+```java
+public class BarangAntik extends Barang implements Authenticable
+```
 
+```java
+public class BarangPerhiasan extends Barang implements Authenticable
+```
 
-#### 7.4 Hapus Data Barang
+Implementasi verifikasi dapat berbeda pada setiap class.
 
-<img width="1152" height="570" alt="image" src="https://github.com/user-attachments/assets/2eef8007-3a45-4ee9-a280-3697a28b8ae3" />
+Pada `BarangAntik`:
 
+```java
+@Override
+public boolean verifikasiKeaslian() {
+    return tahunPembuatan < 1950;
+}
+```
+
+Pada `BarangPerhiasan`:
+
+```java
+@Override
+public boolean verifikasiKeaslian() {
+    return beratGram > 0.5;
+}
+```
+
+Dengan demikian, interface menentukan kemampuan yang harus dimiliki, sedangkan masing-masing subclass menentukan cara menjalankan kemampuan tersebut.
+
+---
+
+# 11. Validasi dan Exception Handling
+
+Program menyediakan class `Validator` pada package `util` untuk menangani validasi input pengguna.
+
+Contohnya:
+
+```java
+try {
+    return Integer.parseInt(input);
+} catch (NumberFormatException e) {
+    System.out.println("-> Input tidak valid!");
+}
+```
+
+`try-catch` digunakan untuk menangani input yang tidak dapat dikonversi menjadi tipe data yang sesuai.
+
+Validasi juga dilakukan terhadap nilai seperti:
+
+* input kosong
+* angka negatif
+* pilihan menu di luar rentang yang ditentukan
+* nilai berat yang tidak valid
+
+Pada model, data yang tidak memenuhi aturan juga akan menghasilkan `IllegalArgumentException`.
+
+---
+
+# 12. Contoh Output Program
+
+### 12.1 Menu Utama
+
+```text
+===========================================
+    TOKO BARANG ANTIK - MONARCH ANTIQU'E
+===========================================
+1. Tambah Barang
+2. Tampilkan Semua Barang
+3. Cari Barang
+4. Update Barang
+5. Hapus Barang
+6. Keluar
+===========================================
+Pilih menu (1-6):
+```
+
+### 12.2 Menampilkan Data Barang
+
+```text
+=== DAFTAR BARANG ANTIK & PERHIASAN ===
+-----------------------------------------------------------------------------------------------------------------------------------
+ID   Nama Barang              Jenis           Harga             Stok   | Detail & Sertifikat Keaslian
+-----------------------------------------------------------------------------------------------------------------------------------
+1    Mangkuk Dinasti Ming     Barang Antik    Rp18000000        2      | ...
+2    Cincin Kecubung Antik    Perhiasan       Rp7500000         1      | ...
+3    Patung Singa Guennol     Barang Antik    Rp32000000        1      | ...
+-----------------------------------------------------------------------------------------------------------------------------------
+```
+
+### 12.3 Pencarian Barang
+
+Pengguna dapat mencari barang berdasarkan ID atau keyword nama.
+
+```text
+=== CARI BARANG ===
+1. Cari berdasarkan ID
+2. Cari berdasarkan Nama/Keyword
+Pilih metode pencarian (1-2):
+```
+
+### 12.4 Update Barang
+
+Program menampilkan nilai lama dan memberikan pilihan untuk mempertahankan nilai tersebut dengan menekan `Enter`.
+
+```text
+*Catatan: Tekan [ENTER] jika tidak ingin mengubah nilai lama.
+
+Nama barang baru [Mangkuk Dinasti Ming]:
+Harga baru Rp [18000000]:
+Stok baru [2]:
+```
+
+### 12.5 Hapus Barang
+
+Program meminta konfirmasi sebelum melakukan penghapusan:
+
+```text
+Yakin ingin menghapus 'Mangkuk Dinasti Ming'? (y/n):
+```
+
+Jika pengguna memilih `y`, data akan dihapus dari daftar.
+
+---
+
+# 13. Kesimpulan
+
+Monarch Antiqu'e System merupakan aplikasi manajemen inventaris berbasis Java yang menerapkan konsep utama Pemrograman Berorientasi Objek.
+
+Konsep yang diterapkan meliputi:
+
+* **Encapsulation** melalui getter, setter, access modifier, dan validasi data.
+* **Inheritance** melalui `Barang` sebagai superclass dan `BarangAntik` serta `BarangPerhiasan` sebagai subclass.
+* **Polymorphism** melalui method overriding dan overloading.
+* **Abstraction** melalui abstract class `Barang` dan abstract method.
+* **MVC** melalui pemisahan package `model`, `view`, dan `controller`.
+* **Interface** melalui `Authenticable` sebagai nilai tambah.
+
+Seluruh fitur tersebut digunakan secara langsung dalam program untuk membangun sistem inventaris yang terstruktur dan menerapkan prinsip Pemrograman Berorientasi Objek.
