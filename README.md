@@ -454,6 +454,13 @@ Menampilkan menu utama program yang terdiri dari fitur tambah, tampilkan, cari, 
 
 <img width="968" height="246" alt="image" src="https://github.com/user-attachments/assets/d1c86ec9-ea3d-4e26-996b-b81ab4f39be8" />
 
+**Spesifikasi Teknis & Mekanisme Pengolahan:**
+* **Input Control:** Sistem menerima masukan string/integer pada prompt `Pilih menu (1-6):`.
+* **Input Validation & Exception Handling:** 
+  * Jika input berada di luar jangkauan angka `1-6` atau berupa karakter non-numerik, sistem akan memicu error handling/pesan peringatan dan melakukan *re-prompt* tanpa menghentikan program.
+* **Control Flow:** Pilihan angka dipetakan menggunakan struktur percabangan (`switch-case`) untuk memanggil masing-masing sub-fungsi/prosedur yang sesuai.
+* **Screen Refresh:** Setiap kali kembali ke Menu Utama, layar terminal dapat dibersihkan (`cls` / `clear`) untuk menjaga kebersihan antarmuka CLI.
+  
 ---
 
 ### 12.2 Tambah Barang
